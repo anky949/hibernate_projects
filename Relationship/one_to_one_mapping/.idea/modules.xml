@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/one_to_one_mapping.iml" filepath="$PROJECT_DIR$/.idea/modules/one_to_one_mapping.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/one_to_one_mapping_main.iml" filepath="$PROJECT_DIR$/.idea/modules/one_to_one_mapping_main.iml" group="one_to_one_mapping" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/one_to_one_mapping_test.iml" filepath="$PROJECT_DIR$/.idea/modules/one_to_one_mapping_test.iml" group="one_to_one_mapping" />
+    </modules>
+  </component>
+</project>

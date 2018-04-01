@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html class="sl-root decks show  mz-history mz-svg mz-localstorage mz-csspositionsticky mz-supports mz-cssanimations mz-backgroundsize mz-no-cssgridlegacy mz-cssgrid mz-flexbox mz-csstransforms mz-csstransforms3d mz-csstransitions mz-fullscreen loaded ua-linux ua-firefox has-visible-scrollbars reveal-is-ready fonts-are-ready" data-account=""><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Hibernate Bootcamp by Pulkit Pushkarna</title>
+    <meta name="description" content="A presentation created with Slides.">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta property="og:title" content="Hibernate Bootcamp by Pulkit Pushkarna">
+    <meta property="og:description" content="A presentation created with Slides.">
+    <meta property="og:site_name" content="Slides">
+    <meta property="og:image" content="https://s3.amazonaws.com/media-p.slid.es/thumbnails/76e441f41802a3ac4753dea13d53b7b9/thumb.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://slides.com/pulkitpushkarna/hibernate-basics-11">
+    <meta property="fb:app_id" content="146002942236376">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="manifest" href="http://slides.com/manifest.json">
+
+    <link href="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/css.css" rel="stylesheet" type="text/css" data-application-font="opensans">
+
+    <link rel="stylesheet" media="all" href="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/slides-7c2bd8e2c83b17d2ed3515891787b36bfc1217a31003047683701.css">
+    <link rel="stylesheet" media="all" href="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/application-5ad095d3c7d7cb585c7b4806abe8d1be70d3a4c29460d7be.css">
+    	<link rel="stylesheet" media="all" href="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/deck-v2-f4b4c78c4b257e4890734d66a522c81d8c63edaac6912756cc9a.css">
+
+
+
+<style id="user-css-output" type="text/css"></style>
+
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="oeQ41mLkOZT2yUgMuHz9xlqzo550fgyebXaQPS+7hNJUdaAADowZxNGiH8FH/kyv2vVSvIOs6nH6HEa5+2LDRQ==">
+    <script type="application/javascript" async="" defer="defer" src="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/track.js"></script><script type="text/javascript" async="" src="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/f7sH7NavrjjvuGxByaw.js"></script><script async="" src="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/analytics.js"></script><script type="text/javascript">
+  if( !/dnt=1/.test( window.location.search ) ) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-39670045-1', 'auto');
+    ga('send', 'pageview');
+
+  }
+</script>
+    <!--[if lt IE 9]>
+    <script src="//assets.slid.es/assets/html5shiv-0bfa553ebc9c42abf66248f2f3feba0935da70b430bace410f80b72729c14820.js"></script>
+<![endif]-->
+    	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@Slides">
+	<meta name="twitter:title" content="Hibernate Bootcamp">
+	<meta name="twitter:description" content="An interactive presentation created with Slides.">
+	<meta name="twitter:image" content="https://s3.amazonaws.com/media-p.slid.es/thumbnails/76e441f41802a3ac4753dea13d53b7b9/thumb.jpg">
+
+  <style type="text/css"></style><link rel="stylesheet" href="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/montserrat.css"><style type="text/css" media="screen">.uv-icon{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;display:inline-block;cursor:pointer;position:relative;-moz-transition:all 300ms;-o-transition:all 300ms;-webkit-transition:all 300ms;transition:all 300ms;width:39px;height:39px;position:fixed;z-index:100002;opacity:0.8;-moz-transition:opacity 100ms;-o-transition:opacity 100ms;-webkit-transition:opacity 100ms;transition:opacity 100ms}.uv-icon.uv-bottom-right{bottom:10px;right:12px}.uv-icon.uv-top-right{top:10px;right:12px}.uv-icon.uv-bottom-left{bottom:10px;left:12px}.uv-icon.uv-top-left{top:10px;left:12px}.uv-icon.uv-is-selected{opacity:1}.uv-icon svg{width:39px;height:39px}.uv-icon-trigger{display:block;width:39px;height:39px}.uv-popover{font-family:sans-serif;font-weight:100;font-size:13px;color:black;position:fixed;z-index:100001}.uv-popover-content{-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;background:white;position:relative;width:325px;height:325px;-moz-transition:background 200ms;-o-transition:background 200ms;-webkit-transition:background 200ms;transition:background 200ms}.uv-bottom .uv-popover-content{-moz-box-shadow:rgba(0,0,0,0.3) 0 -10px 60px,rgba(0,0,0,0.1) 0 0 20px;-webkit-box-shadow:rgba(0,0,0,0.3) 0 -10px 60px,rgba(0,0,0,0.1) 0 0 20px;box-shadow:rgba(0,0,0,0.3) 0 -10px 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-top .uv-popover-content{-moz-box-shadow:rgba(0,0,0,0.3) 0 10px 60px,rgba(0,0,0,0.1) 0 0 20px;-webkit-box-shadow:rgba(0,0,0,0.3) 0 10px 60px,rgba(0,0,0,0.1) 0 0 20px;box-shadow:rgba(0,0,0,0.3) 0 10px 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-left .uv-popover-content{-moz-box-shadow:rgba(0,0,0,0.3) 10px 0 60px,rgba(0,0,0,0.1) 0 0 20px;-webkit-box-shadow:rgba(0,0,0,0.3) 10px 0 60px,rgba(0,0,0,0.1) 0 0 20px;box-shadow:rgba(0,0,0,0.3) 10px 0 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-right .uv-popover-content{-moz-box-shadow:rgba(0,0,0,0.3) -10px 0 60px,rgba(0,0,0,0.1) 0 0 20px;-webkit-box-shadow:rgba(0,0,0,0.3) -10px 0 60px,rgba(0,0,0,0.1) 0 0 20px;box-shadow:rgba(0,0,0,0.3) -10px 0 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-ie8 .uv-popover-content{position:relative}.uv-ie8 .uv-popover-content .uv-popover-content-shadow{display:block;background:black;content:'';position:absolute;left:-15px;top:-15px;width:100%;height:100%;filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius=15,MakeShadow=true,ShadowOpacity=0.30);z-index:-1}.uv-popover-tail{border:9px solid transparent;width:0;z-index:10;position:absolute;-moz-transition:border-top-color 200ms;-o-transition:border-top-color 200ms;-webkit-transition:border-top-color 200ms;transition:border-top-color 200ms}.uv-top .uv-popover-tail{bottom:-20px;border-top:11px solid white}.uv-bottom .uv-popover-tail{top:-20px;border-bottom:11px solid white}.uv-left .uv-popover-tail{right:-20px;border-left:11px solid white}.uv-right .uv-popover-tail{left:-20px;border-right:11px solid white}.uv-popover-loading{background:white;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;position:absolute;width:100%;height:100%;left:0;top:0}.uv-popover-loading-text{position:absolute;top:50%;margin-top:-0.5em;width:100%;text-align:center}.uv-popover-iframe-container{height:100%}.uv-popover-iframe{-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;overflow:hidden}.uv-is-hidden{display:none}.uv-is-invisible{display:block !important;visibility:hidden !important}.uv-is-transitioning{display:block !important}.uv-no-transition{-moz-transition:none !important;-webkit-transition:none !important;-o-transition:color 0 ease-in !important;transition:none !important}.uv-fade{opacity:1;-moz-transition:opacity 200ms ease-out;-o-transition:opacity 200ms ease-out;-webkit-transition:opacity 200ms ease-out;transition:opacity 200ms ease-out}.uv-fade.uv-is-hidden{opacity:0}.uv-scale-top,.uv-scale-top-left,.uv-scale-top-right,.uv-scale-bottom,.uv-scale-bottom-left,.uv-scale-bottom-right,.uv-scale-right,.uv-scale-right-top,.uv-scale-right-bottom,.uv-scale-left,.uv-scale-left-top,.uv-scale-left-bottom,.uv-slide-top,.uv-slide-bottom,.uv-slide-left,.uv-slide-right{opacity:1;-moz-transition:all 80ms ease-out;-o-transition:all 80ms ease-out;-webkit-transition:all 80ms ease-out;transition:all 80ms ease-out}.uv-scale-top.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateY(-15%);-ms-transform:scale(0.8) translateY(-15%);-webkit-transform:scale(0.8) translateY(-15%);transform:scale(0.8) translateY(-15%)}.uv-scale-top-left.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateY(-15%) translateX(-10%);-ms-transform:scale(0.8) translateY(-15%) translateX(-10%);-webkit-transform:scale(0.8) translateY(-15%) translateX(-10%);transform:scale(0.8) translateY(-15%) translateX(-10%)}.uv-scale-top-right.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateY(-15%) translateX(10%);-ms-transform:scale(0.8) translateY(-15%) translateX(10%);-webkit-transform:scale(0.8) translateY(-15%) translateX(10%);transform:scale(0.8) translateY(-15%) translateX(10%)}.uv-scale-bottom.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateY(15%);-ms-transform:scale(0.8) translateY(15%);-webkit-transform:scale(0.8) translateY(15%);transform:scale(0.8) translateY(15%)}.uv-scale-bottom-left.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateY(15%) translateX(-10%);-ms-transform:scale(0.8) translateY(15%) translateX(-10%);-webkit-transform:scale(0.8) translateY(15%) translateX(-10%);transform:scale(0.8) translateY(15%) translateX(-10%)}.uv-scale-bottom-right.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateY(15%) translateX(10%);-ms-transform:scale(0.8) translateY(15%) translateX(10%);-webkit-transform:scale(0.8) translateY(15%) translateX(10%);transform:scale(0.8) translateY(15%) translateX(10%)}.uv-scale-right.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateX(15%);-ms-transform:scale(0.8) translateX(15%);-webkit-transform:scale(0.8) translateX(15%);transform:scale(0.8) translateX(15%)}.uv-scale-right-top.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateX(15%) translateY(-10%);-ms-transform:scale(0.8) translateX(15%) translateY(-10%);-webkit-transform:scale(0.8) translateX(15%) translateY(-10%);transform:scale(0.8) translateX(15%) translateY(-10%)}.uv-scale-right-bottom.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateX(15%) translateY(10%);-ms-transform:scale(0.8) translateX(15%) translateY(10%);-webkit-transform:scale(0.8) translateX(15%) translateY(10%);transform:scale(0.8) translateX(15%) translateY(10%)}.uv-scale-left.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateX(-15%);-ms-transform:scale(0.8) translateX(-15%);-webkit-transform:scale(0.8) translateX(-15%);transform:scale(0.8) translateX(-15%)}.uv-scale-left-top.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateX(-15%) translateY(-10%);-ms-transform:scale(0.8) translateX(-15%) translateY(-10%);-webkit-transform:scale(0.8) translateX(-15%) translateY(-10%);transform:scale(0.8) translateX(-15%) translateY(-10%)}.uv-scale-left-bottom.uv-is-hidden{opacity:0;-moz-transform:scale(0.8) translateX(-15%) translateY(10%);-ms-transform:scale(0.8) translateX(-15%) translateY(10%);-webkit-transform:scale(0.8) translateX(-15%) translateY(10%);transform:scale(0.8) translateX(-15%) translateY(10%)}.uv-slide-top.uv-is-hidden{-moz-transform:translateY(-100%);-ms-transform:translateY(-100%);-webkit-transform:translateY(-100%);transform:translateY(-100%)}.uv-slide-bottom.uv-is-hidden{-moz-transform:translateY(100%);-ms-transform:translateY(100%);-webkit-transform:translateY(100%);transform:translateY(100%)}.uv-slide-left.uv-is-hidden{-moz-transform:translateX(-100%);-ms-transform:translateX(-100%);-webkit-transform:translateX(-100%);transform:translateX(-100%)}.uv-slide-right.uv-is-hidden{-moz-transform:translateX(100%);-ms-transform:translateX(100%);-webkit-transform:translateX(100%);transform:translateX(100%)}
+</style><style>a, button, .sl-select, .sl-checkbox label, .radio label, .focus-outline { outline: none !important; }</style></head>
+  <body style="transition: -webkit-transform 0.8s ease 0s;">
+    
+    <div id="container" class="container">
+      <header class="global-header show-on-scroll extra-wide">
+  <div class="wrapper">
+    <h1 class="logo-animation open">
+      <a class="symbol" href="http://slides.com/">
+        <div class="box-1"></div>
+        <div class="box-2"></div>
+        <div class="box-3"></div>
+      </a>
+      <a class="word" href="http://slides.com/"></a>
+    </h1>
+    <ul class="nav nav-long">
+        <li class="nav-item" data-page-id="home/explore">
+          <a class="nav-item-anchor" href="http://slides.com/explore"><span class="nav-item-label">Explore</span></a>
+        </li>
+        <li class="nav-item" data-page-id="static/features">
+          <a class="nav-item-anchor" href="http://slides.com/features"><span class="nav-item-label">Features</span></a>
+        </li>
+        <li class="nav-item" data-page-id="static/pricing">
+          <a class="nav-item-anchor" href="http://slides.com/pricing"><span class="nav-item-label">Pricing</span></a>
+        </li>
+        <li class="nav-item-divider"></li>
+        <li class="nav-item" data-page-id="sessions/new">
+          <a class="nav-item-anchor" href="http://slides.com/users/sign_in"><span class="nav-item-label">Log in</span></a>
+        </li>
+        <li class="nav-item nav-item-highlighted nav-item-secondary" data-page-id="static/pricing">
+          <a class="nav-item-anchor" href="http://slides.com/pricing"><span class="nav-item-label">Sign up</span></a>
+        </li>
+    </ul>
+  </div>
+</header>
+
+      
+      <div id="main" class="main" role="main">
+        
+
+
+
+
+
+<div class="marquee">
+
+	<div class="reveal-frame">
+		<div class="reveal-viewport theme-font-montserrat theme-color-white-blue">
+			<div class="reveal slide has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="slide">
+				<div class="slides" style="width: 960px; height: 700px; left: 50%; top: 50%; bottom: auto; right: auto; transform: translate(-50%, -50%) scale(0.745714);">
+					<section data-id="790a1107eac37661734ad6e09423330c" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 250px; height: auto;" data-block-id="5fd990f497961b06eb76953a82ac1cc9"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text">
+<h1>Hibernate Bootcamp</h1>
+</div></div></section><section data-id="5fb5c836f7ef2d04004ee066a0443dde" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="e81fe35389fe5921fc2acd33488a79fb" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><strong>Agenda</strong></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="962eb90c87ab80d045ee61f8f4199efb" style="height: auto; min-width: 30px; min-height: 30px; width: 655px; left: 87px; top: 107px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<ul>
+	<li>Understanding Hibernate</li>
+	<li>Setup</li>
+	<li>Hibernate xml configurations</li>
+	<li>hbm2ddl options</li>
+	<li>@Id and @Entity annotations</li>
+	<li>CRUD</li>
+	<li>Transient, Persistent and Detached states</li>
+	<li>Name Annotations</li>
+	<li>Generating Primary Key</li>
+	<li>Embedded types</li>
+	<li>Saving Collections</li>
+	<li>Configuring Collections and Adding Keys</li>
+</ul>
+</div></div></section><section data-id="743386a3fc607a803be3f3d2305f06d9" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="4f84737218ae8b5c0dd47c24b4de5d17" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 147px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Agenda (Cont.)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="716326ce4bb55aed01d58ea1f35f066a" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 101px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<p>&nbsp;</p>
+
+<ul>
+	<li>One to One Mapping</li>
+	<li>One to Many Mapping</li>
+	<li>Many to Many Mapping</li>
+	<li>Cascading&nbsp;</li>
+	<li>Inheritance</li>
+</ul>
+</div></div></section><section data-id="1c15734b8c672c4b99e580a80a91e141" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="646bc3c00c80162e42c20b7d42402aeb" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 130px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>What is Hibernate?</p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="2ca6a06eb27e0d7799caa1c9510d84ba" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 120px; top: 233px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<ul>
+	<li>An ORM tool</li>
+	<li>Used in the data layer of applications</li>
+	<li>Implements JPA</li>
+</ul>
+</div></div></section><section data-id="f3c9bc8d088e21c0343fdbf97404ee12" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="774ad37254308b3ff9756c69b2abc524" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 151px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>The Problem solved by hibernate</p>
+</div></div>
+<div class="sl-block" data-block-type="table" data-block-id="9381cea8aeb2412bc1588662ed94ef27" style="height: auto; min-width: 120px; min-height: 30px; width: 216px; left: 320px; top: 105px;"><div class="sl-block-content" style="z-index: 12;" data-table-cols="1" data-table-rows="6"><table><tbody>
+<tr><th>User Class</th></tr>
+<tr><td>Id</td></tr>
+<tr><td>Name</td></tr>
+<tr><td>Address</td></tr>
+<tr><td>Phone</td></tr>
+<tr><td>Date of Birth&nbsp;</td></tr>
+</tbody></table></div></div>
+<div class="sl-block" data-block-type="table" data-block-id="10983a3927b6fc869b693b902c80bba6" style="height: auto; min-width: 120px; min-height: 30px; width: 800px; left: 60px; top: 466px;"><div class="sl-block-content" style="z-index: 13;" data-table-rows="3" data-table-cols="5"><table><tbody>
+<tr>
+<th>Id</th>
+<th>Name</th>
+<th>Address</th>
+<th>Phone</th>
+<th>Date of Birth</th>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div></div></section><section data-id="08bc97e978e569268466e6e9423ac257" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="2c262db74905c5d388b8227840988807" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 126px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><span>The Problem solved by hibernate (Cont.)</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="a2221217f530e24bfec300cc09b2257c" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<ul>
+	<li>Mapping member variables to column</li>
+	<li>Mapping relationships</li>
+	<li>Handling data types</li>
+	<li>Managing changes to object state&nbsp;</li>
+</ul>
+</div></div></section><section data-id="fb1b2dd663086c4e446f15fa9b7f6831" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="7d352307ddbd3c2d56da161f7cfc26f2" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Set up with gradle</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="62ba7849ee6491d75cb8b703896284a9" style="min-width: 30px; min-height: 30px; width: 650px; height: 300px; left: 80px; top: 172px;"><div class="sl-block-content" style="z-index: 12;" data-highlight-theme="github-gist"><pre><code class="hljs gradle">apply plugin: <span class="hljs-string">'java'</span>
+
+<span class="hljs-keyword">repositories</span> {
+    mavenCentral()
+}
+
+<span class="hljs-keyword">dependencies</span> {
+    <span class="hljs-keyword">compile</span>(<span class="hljs-string">'org.hibernate:hibernate-core:5.2.6.Final'</span>)
+    <span class="hljs-keyword">compile</span> (<span class="hljs-string">'mysql:mysql-connector-java:5.1.6'</span>)
+}
+</code></pre></div></div></section><section data-id="8e936c36ba976a9f36daa5e9621e3590" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="code" data-block-id="3ac2753305a1422f3eb1fd8fbce7cced" style="min-width: 30px; min-height: 30px; width: 934px; height: 546px; left: 13px; top: 121px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 11;"><pre class="gradle"><code class="hljs">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;
+&lt;!DOCTYPE hibernate-configuration <span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</span>
+ <span class="hljs-string">"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"</span>&gt;
+&lt;hibernate-configuration&gt;
+    &lt;session-factory&gt;
+        &lt;!--Database connection settings --&gt;
+        &lt;property name=<span class="hljs-string">"hibernate.connection.driver_class"</span>&gt;com.mysql.jdbc.Driver&lt;<span class="hljs-regexp">/property&gt;
+        &lt;property name="hibernate.connection.url"&gt;jdbc:mysql:/</span><span class="hljs-regexp">/localhost:3306/</span>poc&lt;<span class="hljs-regexp">/property&gt;
+        &lt;property name="hibernate.connection.username"&gt;root&lt;/</span>property&gt;
+        &lt;property name=<span class="hljs-string">"hibernate.connection.password"</span><span class="hljs-regexp">/&gt;
+
+        &lt;!--JDBC connection pool--&gt;
+        &lt;property name="connection.pool_size"&gt;10&lt;/</span>property&gt;
+
+        &lt;!-- SQL Dialect--&gt;
+        &lt;property name=<span class="hljs-string">"hibernate.dialect"</span>&gt;org.hibernate.dialect.MySQLDialect&lt;<span class="hljs-regexp">/property&gt;
+
+        &lt;!--echo all executed SQL--&gt;
+        &lt;property name="show_sql"&gt;true&lt;/</span>property&gt;
+
+        &lt;!--drop or re-create database schema at startup--&gt;
+        &lt;property name=<span class="hljs-string">"hbm2ddl.auto"</span>&gt;create&lt;<span class="hljs-regexp">/property&gt;
+        
+        &lt;!--Annotated entity class--&gt;
+        &lt;mapping class="com.hibernate.demo.Person"/</span>&gt;
+        
+    &lt;<span class="hljs-regexp">/session-factory&gt;
+&lt;/</span>hibernate-configuration&gt;</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="ea63dd18b137414875a6aaa7463268a8" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 147px; top: 51px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>hibernate.cfg.xml</p>
+</div></div></section><section data-id="3368df7e236a5987859c07b3c81fc5da" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="6f423b2bdddfe1db91edb2cd2e45c624" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>hbm2ddl configurations</p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="b2a8ed27f314dc5057944e62385783f8" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<ul>
+	<li>
+<em>update</em>: update the schema.</li>
+	<li>
+<em>create</em>: creates the schema, destroying previous data.</li>
+	<li>
+<em>create-drop</em>: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped.</li>
+	<li>
+<em>none</em>: Do not do anything.&nbsp;</li>
+</ul>
+</div></div></section><section data-id="8d17cd8dfb8d4542dbfeaa88f3025ff4" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="b5b9bf7e103fb01501752602ed480863" style="height: auto; min-width: 30px; min-height: 30px; width: 692px; left: 80px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Special note about update for hbm2ddl auto</p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="4aaa3960864aa8da111e3c46c3f907b1" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 79px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<ul>
+	<li>
+	<p style="color:rgb(36, 39, 41)">update won't modify existing table column definitions.</p>
+	</li>
+	<li>
+	<p style="color:rgb(36, 39, 41)">update will add a db column that doesn't already exist.</p>
+	</li>
+	<li>
+	<p style="color:rgb(36, 39, 41)">update will not delete a db column that is removed/no longer in your entity.</p>
+	</li>
+	<li>
+	<p style="color:rgb(36, 39, 41)">update will not modify a db column that has already been created.</p>
+	</li>
+</ul>
+</div></div></section><section data-id="e4c99760799dcf27a7b8bce61e65f1d8" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="410cdb4eaa142b604d6d5c5f702ce15a" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>@Id and @Entity</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="f3710e3fa9ca9e82f40c4290114d7348" style="min-width: 30px; min-height: 30px; width: 500px; height: 300px; left: 80px; top: 244px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs">
+
+<span class="hljs-keyword">import</span> javax.persistence.Entity;
+<span class="hljs-keyword">import</span> javax.persistence.Id;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Person {
+    @Id
+    Integer id;
+    String name;
+    Integer age;
+}
+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="f7a7652c5a22b2aa7b27834167f66c5a" style="height: auto; min-width: 30px; min-height: 30px; width: 703px; left: 80px; top: 151px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;">
+<ul>
+	<li>@Entity : Marks the class as entity.</li>
+	<li>@Id &nbsp;: Specifies primary key for the entity.</li>
+</ul>
+</div></div></section><section data-id="480ed11bb5eedf3cac553cd4caeb5e66" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="0fcaa30ab838bb4843f598a0d2879b19" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 113px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>CRUD (Create)</p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="803f8537bb5d0d17cb3b64e48306cab1" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<ul>
+	<li>Create a session factory</li>
+	<li>Create a session from session factory</li>
+	<li>Use the session to save model objects</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="8e246f8a44b62fd41b4d628590fee370" style="min-width: 30px; min-height: 30px; width: 790px; height: 338px; left: 57px; top: 280px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> org.hibernate.Session;
+<span class="hljs-keyword">import</span> org.hibernate.SessionFactory;
+<span class="hljs-keyword">import</span> org.hibernate.cfg.Configuration;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Application {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) {
+        Person person=<span class="hljs-keyword">new</span> Person();
+        person.setName(<span class="hljs-string">"Hibernate"</span>);
+        person.setAge(<span class="hljs-number">27</span>);
+        person.setId(<span class="hljs-number">2</span>);
+        SessionFactory sessionFactory=<span class="hljs-keyword">new</span> Configuration().configure().buildSessionFactory();
+        Session session=sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(person);
+        session.getTransaction().commit();
+    }
+}
+</code></pre></div></div></section><section data-id="42682668822febcd0e28b580881f7c9c" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="0eed9cd733ee61fe63696150a9dd1756" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 143px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>CRUD (Read)</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="39cec01a3a48c5542a3b54eab424c539" style="min-width: 30px; min-height: 30px; width: 873px; height: 313px; left: 7px; top: 140px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> org.hibernate.Session;
+<span class="hljs-keyword">import</span> org.hibernate.SessionFactory;
+<span class="hljs-keyword">import</span> org.hibernate.cfg.Configuration;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Application {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) {
+        SessionFactory sessionFactory=<span class="hljs-keyword">new</span> Configuration().configure().buildSessionFactory();
+        Session session=sessionFactory.openSession();
+        session.beginTransaction();
+        Person person=session.get(Person.<span class="hljs-keyword">class</span>,<span class="hljs-number">1</span>);
+        session.getTransaction().commit();
+        session.close();
+        System.out.<span class="hljs-keyword">println</span>(person);
+    }
+}
+</code></pre></div></div></section><section data-id="07c2cc461673e6f2945568f286658c89" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="d58bac260d742f7be21b52b87cb76641" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>CRUD (Update)</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="132d57d599ecaaf3db02c1ae0dd252e3" style="min-width: 30px; min-height: 30px; width: 920px; height: 363px; left: 34px; top: 210px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> org.hibernate.Session;
+<span class="hljs-keyword">import</span> org.hibernate.SessionFactory;
+<span class="hljs-keyword">import</span> org.hibernate.cfg.Configuration;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Application {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) {
+        SessionFactory sessionFactory=<span class="hljs-keyword">new</span> Configuration().configure().buildSessionFactory();
+        Session session=sessionFactory.openSession();
+        session.beginTransaction();
+        Person person=session.get(Person.<span class="hljs-keyword">class</span>,<span class="hljs-number">1</span>);
+        person.setName(<span class="hljs-string">"Updated Name"</span>);
+        session.update(person);
+        session.getTransaction().commit();
+        session.close();
+        System.out.<span class="hljs-keyword">println</span>(person);
+    }
+}
+</code></pre></div></div></section><section data-id="0960ae54742804564df7d651ebca612b" class="past" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="73d06e0c5b2261ba2feac323ec96ccec" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>CRUD (Delete)</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="07b55108c8431ab63f672d9c7f739037" style="min-width: 30px; min-height: 30px; width: 928px; height: 348px; left: 32px; top: 200px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> org.hibernate.Session;
+<span class="hljs-keyword">import</span> org.hibernate.SessionFactory;
+<span class="hljs-keyword">import</span> org.hibernate.cfg.Configuration;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Application {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) {
+        SessionFactory sessionFactory=<span class="hljs-keyword">new</span> Configuration().configure().buildSessionFactory();
+        Session session=sessionFactory.openSession();
+        session.beginTransaction();
+        Person person=session.get(Person.<span class="hljs-keyword">class</span>,<span class="hljs-number">1</span>);
+        session.<span class="hljs-keyword">delete</span>(person);
+        session.getTransaction().commit();
+        session.close();
+        System.out.<span class="hljs-keyword">println</span>(person);
+    }
+}
+</code></pre></div></div></section><section data-id="56dcf6a35c8fdc0e0cc26115f516927e" class="past" style="display: block;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="fc6650f1797dfc2d6274651217059963" style="height: auto; min-width: 30px; min-height: 30px; width: 702px; left: 86px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Transient, Persistent and Detached states</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="f08426d77b5f96464bfbdef277e02553" style="min-width: 30px; min-height: 30px; width: 928px; height: 511px; left: 0px; top: 140px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> org.hibernate.Session;
+<span class="hljs-keyword">import</span> org.hibernate.SessionFactory;
+<span class="hljs-keyword">import</span> org.hibernate.cfg.Configuration;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Application {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) {
+        Person person=<span class="hljs-keyword">new</span> Person();
+        <span class="hljs-comment">//Transient state</span>
+        person.setName(<span class="hljs-string">"Hibernate"</span>);
+        person.setAge(<span class="hljs-number">23</span>);
+
+        SessionFactory sessionFactory=<span class="hljs-keyword">new</span> Configuration().configure().buildSessionFactory();
+        Session session=sessionFactory.openSession();
+        session.beginTransaction();
+        <span class="hljs-comment">//Persistent state</span>
+        session.save(person);
+        person.setName(<span class="hljs-string">"Updated"</span>);
+        
+        session.getTransaction().commit();
+        session.close();
+        sessionFactory.close();
+
+        <span class="hljs-comment">//Detached state</span>
+        person.setName(<span class="hljs-string">"Updated in detached"</span>);
+
+    }
+}
+</code></pre></div></div></section><section data-id="1fa06672e63a6f63cf7b3a62fcc8bfc5" class="past" style="display: block;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="08c41ee74135ebd4beda0089b983b035" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 120px; top: 38px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Name Annotations</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="cb76897359ecd72aeeccfeb7328c0f90" style="min-width: 30px; min-height: 30px; width: 345px; height: 252px; left: 95px; top: 371px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.Column;
+<span class="hljs-keyword">import</span> javax.persistence.Entity;
+<span class="hljs-keyword">import</span> javax.persistence.Id;
+
+@Entity(name = <span class="hljs-string">"Employee"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Person {
+    @Id
+    Integer id;
+    @Column(name = <span class="hljs-string">"First_Name"</span>)
+    String name;
+    Integer age;
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="867253ac26b1e3118f8302966c572a25" style="height: auto; min-width: 30px; min-height: 30px; width: 720px; left: 80px; top: 121px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;">
+<ul>
+	<li>Name property can be used with @Entity and @Column annotation to specify the name of table and column.</li>
+	<li>@Id and @Column annotations can be used with getters also.</li>
+</ul>
+</div></div></section><section data-id="da95282798c5207ac9211fe9a841648b" class="present" style="display: block;"><div class="sl-block" data-block-type="text" data-block-id="acd07fd0f3a701f5a2258ff0ed54eac4" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>More Annotations</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="abcefb8cafbf188cee3b962c3ad82faf" style="min-width: 30px; min-height: 30px; width: 500px; height: 300px; left: 86px; top: 70px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+<span class="hljs-keyword">import</span> java.util.Date;
+
+@Entity
+@Table(name = <span class="hljs-string">"Employee"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Person {
+    @Id
+    Integer id;
+    @Column(name = <span class="hljs-string">"First_Name"</span>)
+    String name;
+    @<span class="hljs-keyword">Transient</span>
+    Integer age;
+    @Temporal(TemporalType.DATE)
+    Date dob;
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="1492ce7dd33ee2695195ce8e828f4242" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 381px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;">
+<ul>
+	<li>@Table annotation is used to store specify the name of the table for entity.</li>
+	<li>@Transient is used to ignore the field of an entity while persisting it into a database.</li>
+	<li>@Temporal annotation is used with Date types to specify what should be saved i.e DATE, TIME or TIMESTAMP</li>
+</ul>
+</div></div></section><section data-id="863eb174e3a1933ee73a893d594251f6" class="future" style="display: block;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="44333a48d2f83cde3ec5079f487124e9" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Automatically generate primary key value</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="7e782c3dbc8cd2893c91d90b5105eed5" style="min-width: 30px; min-height: 30px; width: 600px; height: 300px; left: 107px; top: 293px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs">@Entity
+@Table(name = <span class="hljs-string">"Employee"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Person {
+    @Id @GeneratedValue(strategy =GenerationType.SEQUENCE )
+    Integer id;
+    String name;
+    Integer age;
+    @Temporal(TemporalType.DATE)
+    Date dob;
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="819f93e0908fbffd3d67cd265576b8be" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 100px; top: 158px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;">
+<ul>
+	<li>@GenerateValue annotation can be used to generate id for objects while persistence.</li>
+</ul>
+</div></div></section><section data-id="f10eeda3e3df82bc00f41fe5d431e7b2" class="future" style="display: block;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="c1898608681fe9bf3c38882ddfaf7adc" style="height: auto; min-width: 30px; min-height: 30px; width: 824px; left: 80px; top: 112px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<ul>
+	<li><span style="font-size:0.7em"><strong>AUTO (default)</strong><span style="color:rgb(36, 39, 41)">: Tells Doctrine to pick the strategy that is preferred by the used database platform. The preferred strategies are </span>IDENTITY<span style="color:rgb(36, 39, 41)">&nbsp;for MySQL, SQLite and MsSQL and </span>SEQUENCE<span style="color:rgb(36, 39, 41)">&nbsp;for Oracle and PostgreSQL. This strategy provides full portability.</span></span></li>
+	<li><span style="font-size:0.7em"><strong>SEQUENCE:</strong><span style="color:rgb(36, 39, 41)">&nbsp;Tells Doctrine to use a database sequence for </span>ID<span style="color:rgb(36, 39, 41)">&nbsp;generation. This strategy does currently not provide full portability. Sequences are supported by Oracle and PostgreSql.</span></span></li>
+	<li>
+	<p style="color:rgb(36, 39, 41)"><span style="font-size:0.7em"><strong>IDENTITY:</strong>&nbsp;Tells
+ Doctrine to use special identity columns in the database that generate a
+ value on insertion of a row. This strategy does currently not provide 
+full portability and is supported by the following platforms:</span></p>
+	</li>
+</ul>
+
+<p style="color:rgb(36, 39, 41)"><span style="font-size:0.7em"><span style="font-size:0.7em">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;MySQL/SQLite =&gt; AUTO_INCREMENT</span></span></p>
+
+<p style="color:rgb(36, 39, 41)"><span style="font-size:0.7em"><span style="font-size:0.7em">&nbsp; &nbsp; &nbsp; &nbsp; MSSQL =&gt; IDENTITY</span></span></p>
+
+<p style="color:rgb(36, 39, 41)"><span style="font-size:0.7em"><span style="font-size:0.7em">&nbsp; &nbsp; &nbsp; &nbsp; PostgreSQL =&gt; SERIAL</span></span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="558613202aecddad21e3081111309f74" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 119px; top: 37px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Id Generation Stratergies</p>
+</div></div></section><section data-id="394a8d4ee9973d972cb625a20060825c" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="86f9c8bde2b6470f4ff9facd010226bc" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 162px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;">
+<ul>
+	<li><span style="font-size:0.9em"><strong>TABLE:</strong><span style="color:rgb(36, 39, 41)">&nbsp;Tells Doctrine to use a separate table for </span>ID<span style="color:rgb(36, 39, 41)">&nbsp;generation. This strategy provides full portability.</span></span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="c61bf35073a29a84db8700b5ce5ca53b" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 114px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><span>Id Generation Stratergies (cont.)</span></p>
+</div></div></section><section data-id="8ac69f2370a134f009f1422e928d678a" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="538ee3df052132729e416f275473fd57" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 131px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Embedded Type</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="a7ff6803aefac915cea185830bf8ef15" style="min-width: 30px; min-height: 30px; width: 610px; height: 230px; left: 80px; top: 210px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Person{
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
+    String name;
+    Integer age;
+    @Embedded
+    Address address;
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="a06e6dc14caaedcf51637613ebe16034" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 93px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;">
+<p><span style="font-size:0.9em">For embedded object we can use @Embedded annotation for the Reference type instance variable</span></p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="8879c23f547742ce1399468e5bfdcc82" style="min-width: 30px; min-height: 30px; width: 500px; height: 144px; left: 80px; top: 531px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 14;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.Embeddable;
+
+@Embeddable
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Address {
+    String city;
+    String country;
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="31f0ae5a3e3b0c12da50a4ee8f4fa432" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 85px; top: 440px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; text-align: left;">
+<p><span style="font-size:0.9em">Optionally we can also place @Embeddable on the class of the reference type instance variable</span></p>
+</div></div></section><section data-id="f0e42e387e767f86e6ebe8ec9c4a385b" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="aa23708268b74d84111f60e87316b7ed" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 136px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Embedded type (Cont.)</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="7869a4def42dd2246d5a8327b01d612a" style="min-width: 30px; min-height: 30px; width: 937px; height: 440px; left: 0px; top: 140px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> org.hibernate.Session;
+<span class="hljs-keyword">import</span> org.hibernate.SessionFactory;
+<span class="hljs-keyword">import</span> org.hibernate.cfg.Configuration;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Application {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) {
+        Person person=<span class="hljs-keyword">new</span> Person();
+        person.setName(<span class="hljs-string">"Hibernate"</span>);
+        person.setAge(<span class="hljs-number">23</span>);
+        Address address=<span class="hljs-keyword">new</span> Address();
+        address.setCity(<span class="hljs-string">"Delhi"</span>);
+        address.setCountry(<span class="hljs-string">"India"</span>);
+        person.setAddress(address);
+        SessionFactory sessionFactory=<span class="hljs-keyword">new</span> Configuration().configure().buildSessionFactory();
+        Session session=sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(person);
+        session.getTransaction().commit();
+        session.close();
+    }
+}
+</code></pre></div></div></section><section data-id="7a2d8dbd8df8b1f065115e4d94cfc8e5" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="594123115bf232c131dbc3008d8fff0f" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 131px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Saving Collections</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="6bf5b7516f233c7316b4c68ea0441700" style="min-width: 30px; min-height: 30px; width: 620px; height: 367px; left: 90px; top: 280px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+<span class="hljs-keyword">import</span> java.util.Date;
+<span class="hljs-keyword">import</span> java.util.HashSet;
+<span class="hljs-keyword">import</span> java.util.Set;
+
+@Entity
+@Table(name = <span class="hljs-string">"Employee"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Person {
+    @Id @GeneratedValue(strategy =GenerationType.SEQUENCE )
+    Integer id;
+    String name;
+    Integer age;
+    @Temporal(TemporalType.DATE)
+    Date dob;
+    @ElementCollection
+    Set&lt;String&gt; hobbies=<span class="hljs-keyword">new</span> HashSet&lt;String&gt;();
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="294692b4638661688d02af8385f36304" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 140px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;">
+<ul>
+	<li>@ElementCollection annotation is used to persist collections in Hibernate entities</li>
+</ul>
+</div></div></section><section data-id="eef3258cc5d131d40f316097c7602912" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="5474d4a243361c444a95e097a9897350" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 37px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>One to One mapping</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="b5e04120e0d925b84bbaf05c2eb44de2" style="min-width: 30px; min-height: 30px; width: 600px; height: 240px; left: 80px; top: 121px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+
+@Entity
+@Table(name = <span class="hljs-string">"Employee"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Person {
+    @Id @GeneratedValue(strategy =GenerationType.SEQUENCE )
+    Integer id;
+    String name;
+    Integer age;
+    @OneToOne
+    @JoinColumn(name = <span class="hljs-string">"Vehicle_join_column"</span>)
+    Vehicle vehicle;
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="code" data-block-id="56d0fe1484a9e87e04c20a6c3b8e83da" style="min-width: 30px; min-height: 30px; width: 500px; height: 259px; left: 70px; top: 425px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.Entity;
+<span class="hljs-keyword">import</span> javax.persistence.GeneratedValue;
+<span class="hljs-keyword">import</span> javax.persistence.GenerationType;
+<span class="hljs-keyword">import</span> javax.persistence.Id;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Vehicle {
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    Integer vehicleId;
+    String vehicleName;
+}</code></pre></div></div></section><section data-id="922d16d62cc840b08b5dde640f56dc81" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="caf9e3a38862ba44010c6c1606db2976" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 100px; top: 38px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><span>One to One mapping (Cont.)</span></p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="deda9c1122db0899e268bbe4a3b8dd94" style="min-width: 30px; min-height: 30px; width: 862px; height: 300px; left: 80px; top: 210px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs">Person person=<span class="hljs-keyword">new</span> Person();
+person.setName(<span class="hljs-string">"Hibernate"</span>);
+person.setAge(<span class="hljs-number">27</span>);
+person.setId(<span class="hljs-number">1</span>);
+Vehicle vehicle=<span class="hljs-keyword">new</span> Vehicle();
+vehicle.setVehicleName(<span class="hljs-string">"Car"</span>);
+person.setVehicle(vehicle);
+SessionFactory sessionFactory=<span class="hljs-keyword">new</span> Configuration().configure().buildSessionFactory();
+Session session=sessionFactory.openSession();
+session.beginTransaction();
+session.save(person);
+session.save(vehicle);
+session.getTransaction().commit();
+session.close();
+</code></pre></div></div></section><section data-id="b57da1ccb550bade34da7a30c5b3b226" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="6ad4170a83ca231254aa38c056ed0c86" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>One to Many (Unidirectional)</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="c3eb9c4a766104be11b7eea6944115bd" style="min-width: 30px; min-height: 30px; width: 650px; height: 326px; left: 75px; top: 94px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+<span class="hljs-keyword">import</span> java.util.Collection;
+<span class="hljs-keyword">import</span> java.util.HashSet;
+
+@Entity
+@Table(name = <span class="hljs-string">"Employee"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Person {
+    @Id @GeneratedValue(strategy =GenerationType.SEQUENCE )
+    Integer id;
+    String name;
+    Integer age;
+    @OneToMany
+    @JoinTable(joinColumns = @JoinColumn(name=<span class="hljs-string">"USER_ID"</span>)
+            ,inverseJoinColumns = @JoinColumn(name = <span class="hljs-string">"VEHICAL_ID"</span>))
+    Collection&lt;Vehicle&gt; vehicle= <span class="hljs-keyword">new</span> HashSet&lt;Vehicle&gt;();
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="code" data-block-id="022353815010a9b3b6633b8d1f757014" style="min-width: 30px; min-height: 30px; width: 500px; height: 201px; left: 80px; top: 467px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Vehicle {
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    Integer vehicleId;
+    String vehicleName;
+}</code></pre></div></div></section><section data-id="1e71d553e997602b2c70cd53c0f2591f" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="3d717369bcd5fdf48301881e26897883" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 37px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><span>One to Many (Unidirectional) Cont.</span></p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="a950c5dda4278fcde885d931fbc9e92f" style="min-width: 30px; min-height: 30px; width: 855px; height: 399px; left: 80px; top: 140px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs">Person person=<span class="hljs-keyword">new</span> Person();
+person.setName(<span class="hljs-string">"Hibernate"</span>);
+person.setAge(<span class="hljs-number">27</span>);
+person.setId(<span class="hljs-number">1</span>);
+Vehicle vehicle=<span class="hljs-keyword">new</span> Vehicle();
+vehicle.setVehicleName(<span class="hljs-string">"Car"</span>);
+Vehicle vehicle2=<span class="hljs-keyword">new</span> Vehicle();
+vehicle2.setVehicleName(<span class="hljs-string">"Bike"</span>);
+person.getVehicle().add(vehicle);
+person.getVehicle().add(vehicle2);
+SessionFactory sessionFactory=<span class="hljs-keyword">new</span> Configuration().configure().buildSessionFactory();
+Session session=sessionFactory.openSession();
+session.beginTransaction();
+session.save(person);
+session.save(vehicle);
+session.save(vehicle2);
+session.getTransaction().commit();
+session.close();</code></pre></div></div></section><section data-id="2898b42db5a3f218185c033b80da2437" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="db022f107e599d8af5423395a7273a55" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 128px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>One to Many (Bidirectional)</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="4f299c13830183fd0f41d128d63ed9de" style="min-width: 30px; min-height: 30px; width: 683px; height: 339px; left: 80px; top: 111px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+<span class="hljs-keyword">import</span> java.util.Collection;
+<span class="hljs-keyword">import</span> java.util.HashSet;
+
+@Entity
+@Table(name = <span class="hljs-string">"Employee"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Person {
+    @Id @GeneratedValue(strategy =GenerationType.SEQUENCE )
+    Integer id;
+    String name;
+    Integer age;
+    @OneToMany
+    @JoinTable(joinColumns = @JoinColumn(name=<span class="hljs-string">"USER_ID"</span>)
+            ,inverseJoinColumns = @JoinColumn(name = <span class="hljs-string">"VEHICAL_ID"</span>))
+    Collection&lt;Vehicle&gt; vehicle= <span class="hljs-keyword">new</span> HashSet&lt;Vehicle&gt;();
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="code" data-block-id="ef7c62e8a3c3d83878ea88192d8265eb" style="min-width: 30px; min-height: 30px; width: 622px; height: 237px; left: 80px; top: 463px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Vehicle {
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    Integer vehicleId;
+    String vehicleName;
+    @ManyToOne
+    Person person;
+}</code></pre></div></div></section><section data-id="852802871f125d3c8d13795c0723f58d" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="code" data-block-id="f6ae7f89fd81628810e6312ffa5381a8" style="min-width: 30px; min-height: 30px; width: 861px; height: 430px; left: 80px; top: 135px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 11;"><pre class="gradle"><code class="hljs">Person person=<span class="hljs-keyword">new</span> Person();
+person.setName(<span class="hljs-string">"Hibernate"</span>);
+person.setAge(<span class="hljs-number">27</span>);
+person.setId(<span class="hljs-number">1</span>);
+Vehicle vehicle=<span class="hljs-keyword">new</span> Vehicle();
+vehicle.setVehicleName(<span class="hljs-string">"Car"</span>);
+vehicle.setPerson(person);
+Vehicle vehicle2=<span class="hljs-keyword">new</span> Vehicle();
+vehicle2.setPerson(person);
+vehicle2.setVehicleName(<span class="hljs-string">"Bike"</span>);
+person.getVehicle().add(vehicle);
+person.getVehicle().add(vehicle2);
+SessionFactory sessionFactory=<span class="hljs-keyword">new</span> Configuration().configure().buildSessionFactory();
+Session session=sessionFactory.openSession();
+session.beginTransaction();
+session.save(person);
+session.save(vehicle);
+session.save(vehicle2);
+session.getTransaction().commit();
+session.close();</code></pre></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="062988397cb80b6c32b0b716244cfb5e" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 130px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><span>One to Many (Bidirectional) Cont.</span></p>
+</div></div></section><section data-id="1b6c041e4896570878c1310ca0fd736e" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="c303bda6bab1cfa6a1604fa38dcc1e5f" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>One to Many without additional table&nbsp;</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="329ce4db5229e4171b604f28e6f4135c" style="min-width: 30px; min-height: 30px; width: 620px; height: 300px; left: 90px; top: 92px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+<span class="hljs-keyword">import</span> java.util.Collection;
+<span class="hljs-keyword">import</span> java.util.HashSet;
+
+@Entity
+@Table(name = <span class="hljs-string">"Employee"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Person {
+    @Id @GeneratedValue(strategy =GenerationType.SEQUENCE )
+    Integer id;
+    String name;
+    Integer age;
+    @OneToMany(mappedBy = <span class="hljs-string">"person"</span>)
+    Collection&lt;Vehicle&gt; vehicle= <span class="hljs-keyword">new</span> HashSet&lt;Vehicle&gt;();
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="code" data-block-id="49458e72aaf07207df24999adf1e4ec1" style="min-width: 30px; min-height: 30px; width: 670px; height: 242px; left: 90px; top: 439px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Vehicle {
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    Integer vehicleId;
+    String vehicleName;
+    @ManyToOne
+    Person person;
+}</code></pre></div></div></section><section data-id="1cd1f3003142b2d079e28a115b8c36f4" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="d72ff9d8d2c2819ab052a37ad730b167" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Many to Many&nbsp;</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="efb4b6b96203e1c0e6a921517428b889" style="min-width: 30px; min-height: 30px; width: 650px; height: 300px; left: 80px; top: 84px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.List;
+
+@Entity
+@Table(name = <span class="hljs-string">"Employee"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Person {
+    @Id @GeneratedValue(strategy =GenerationType.SEQUENCE )
+    Integer id;
+    String name;
+    Integer age;
+    @ManyToMany
+    List&lt;Vehicle&gt; vehicle= <span class="hljs-keyword">new</span> ArrayList&lt;Vehicle&gt;();
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="code" data-block-id="8a5d32cbd7804551d1734a7efdafabc8" style="min-width: 30px; min-height: 30px; width: 500px; height: 290px; left: 92px; top: 404px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.List;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Vehicle {
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    Integer vehicleId;
+    String vehicleName;
+    @ManyToMany(mappedBy = <span class="hljs-string">"vehicle"</span>)
+    List&lt;Person&gt; personList = <span class="hljs-keyword">new</span> ArrayList&lt;Person&gt;();
+}</code></pre></div></div></section><section data-id="e7fc70390dd225426b9529b6c26cfaad" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="9d64bb8a7e84f76f3d45f6e948631c79" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 37px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Cascade Type</p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="90a77e6b0dfaaf1a9aa11fceab00fba4" style="min-width: 30px; min-height: 30px; width: 594px; height: 263px; left: 80px; top: 140px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.List;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Person{
+    @Id @GeneratedValue(strategy = GenerationType.TABLE)
+    Integer id;
+    String name;
+    Integer age;
+    @OneToMany(cascade = CascadeType.PERSIST)
+    List&lt;Vehicle&gt; listOfVehicles=<span class="hljs-keyword">new</span> ArrayList&lt;Vehicle&gt;();
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="code" data-block-id="dd7e25822f52c308825e0171e3edc354" style="min-width: 30px; min-height: 30px; width: 500px; height: 242px; left: 80px; top: 432px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.Entity;
+<span class="hljs-keyword">import</span> javax.persistence.GeneratedValue;
+<span class="hljs-keyword">import</span> javax.persistence.GenerationType;
+<span class="hljs-keyword">import</span> javax.persistence.Id;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Vehicle {
+    @Id @GeneratedValue(strategy = GenerationType.TABLE)
+    Integer vehicleId;
+    String vehicleName;
+}</code></pre></div></div></section><section data-id="787119c54b6dbdad224d3353f095228e" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="a5af361540e5ecf67479a09c1e06c869" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 136px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><span>Cascade Type (Cont.)</span></p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="a32d289668c2e68039475fe0642db536" style="min-width: 30px; min-height: 30px; width: 925px; height: 418px; left: 0px; top: 152px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 12;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> org.hibernate.Session;
+<span class="hljs-keyword">import</span> org.hibernate.SessionFactory;
+<span class="hljs-keyword">import</span> org.hibernate.cfg.Configuration;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Application {
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) {
+        Person person=<span class="hljs-keyword">new</span> Person();
+        person.setName(<span class="hljs-string">"Hibernate"</span>);
+        person.setAge(<span class="hljs-number">23</span>);
+        Vehicle vehicle=<span class="hljs-keyword">new</span> Vehicle();
+        vehicle.setVehicleName(<span class="hljs-string">"Car"</span>);
+        person.getListOfVehicles().add(vehicle);
+        SessionFactory sessionFactory=<span class="hljs-keyword">new</span> Configuration().configure().buildSessionFactory();
+        Session session=sessionFactory.openSession();
+        session.beginTransaction();
+        session.persist(person);
+        session.getTransaction().commit();
+        session.close();
+        sessionFactory.close();
+    }
+}
+</code></pre></div></div></section><section data-id="e6dda88ce20978b4810d91c1e57c20cc" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="4348e6a1d2b8776a00333a95667a8dcc" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 80px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p>Inheritance</p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="bc6757d8247e89964f3b0f3faa9051cd" style="height: auto; min-width: 30px; min-height: 30px; width: 523px; left: 80px; top: 104px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<p><span style="color:rgb(51, 51, 51); text-align:start">Hibernate provides several strategies to leverage this object-oriented trait onto domain model entities.</span></p>
+</div></div></section><section data-id="28b946e7ca0aee996eb8cc4f7fa73f80" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="0a924c2a5226a27d946249d2dc0bde92" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 20px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><span>MappedSuperclass</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="43510cf6656de119b6a81aba8d3b0198" style="height: auto; min-width: 30px; min-height: 30px; width: 815px; left: 80px; top: 59px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<p><span style="color:rgb(51, 51, 51); text-align:start">When using </span><span style="text-align:left">MappedSuperclass</span><span style="color:rgb(51, 51, 51); text-align:start">,
+ the inheritance is visible in the domain model only and each database 
+table contains both the base class and the subclass properties.</span></p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="50d53a62680d0061de98c39c11abdace" style="min-width: 30px; min-height: 30px; width: 425px; height: 300px; left: 48px; top: 210px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.Id;
+<span class="hljs-keyword">import</span> javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Account {
+    @Id
+    <span class="hljs-keyword">private</span> Integer id;
+    <span class="hljs-keyword">private</span> String owner;
+    <span class="hljs-keyword">private</span> Integer balance;
+    <span class="hljs-keyword">private</span> Integer interestRate;
+
+    <span class="hljs-comment">//getters and setters    </span>
+}
+</code></pre></div></div>
+<div class="sl-block" data-block-type="code" data-block-id="2da57c7d3a89006289f455fe88013a93" style="min-width: 30px; min-height: 30px; width: 448px; height: 412px; left: 496px; top: 210px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 14;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.Entity;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> DebitAccount <span class="hljs-keyword">extends</span> Account{
+
+    <span class="hljs-keyword">private</span> Integer overdraftFee;
+
+    <span class="hljs-comment">//getter and setter</span>
+}
+
+
+DebitAccount debitAccount=<span class="hljs-keyword">new</span> DebitAccount();
+debitAccount.setOwner(<span class="hljs-string">"Peter"</span>);
+debitAccount.setBalance(<span class="hljs-number">23000</span>);
+debitAccount.setInterestRate(<span class="hljs-number">23</span>);
+debitAccount.setId(<span class="hljs-number">2</span>);
+debitAccount.setOverdraftFee(<span class="hljs-number">2300</span>);
+session.save(debitAccount);</code></pre></div></div></section><section data-id="c20c542c0b97a637c213e62991a0f12e" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="f747bb960a79a1a9665d720e8dbf145b" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><span>Single Table</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="1810b3d218a075f733f7f4c91efefe12" style="height: auto; min-width: 30px; min-height: 30px; width: 815px; left: 73px; top: 82px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<p><span style="color:rgb(51, 51, 51); text-align:start">The single 
+table inheritance strategy maps all subclasses to only one database 
+table. Each subclass declares its own persistent properties.</span></p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="42f73292c2d0c95f4136bddfc38f805b" style="min-width: 30px; min-height: 30px; width: 581px; height: 228px; left: 80px; top: 210px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Account {
+    @Id
+    <span class="hljs-keyword">private</span> Integer id;
+    <span class="hljs-keyword">private</span> String owner;
+    <span class="hljs-keyword">private</span> Integer balance;
+    <span class="hljs-keyword">private</span> Integer interestRate;
+}
+</code></pre></div></div>
+<div class="sl-block" data-block-type="code" data-block-id="bd2e9cfcf33742c09011606b9d410044" style="min-width: 30px; min-height: 30px; width: 500px; height: 204px; left: 80px; top: 484px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 14;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.Entity;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> DebitAccount <span class="hljs-keyword">extends</span> Account{
+
+    <span class="hljs-keyword">private</span> Integer overdraftFee;
+
+    <span class="hljs-comment">// getter and setter</span>
+}
+</code></pre></div></div></section><section data-id="4fd66f78143d87649f3459c3ba9f770f" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="9e273d1bb989fb9db1cb6433f99aa2c1" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 170px; top: 17px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><span>Joined Table</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="0cca9446110b78c70d1c707b8fd91bca" style="height: auto; min-width: 30px; min-height: 30px; width: 800px; left: 80px; top: 56px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<p><span style="color:rgb(51, 51, 51); text-align:start">Each subclass can also be mapped to its own table. This is also called </span><em>table-per-subclass</em><span style="color:rgb(51, 51, 51); text-align:start">&nbsp;mapping strategy. An inherited state is retrieved by joining with the table of the superclass.</span></p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="21c4c2b2fa8e48f12e5fbf2d2a7b0fa9" style="min-width: 30px; min-height: 30px; width: 500px; height: 220px; left: 80px; top: 240px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Account {
+    @Id
+    <span class="hljs-keyword">private</span> Integer id;
+    <span class="hljs-keyword">private</span> String owner;
+    <span class="hljs-keyword">private</span> Integer balance;
+    <span class="hljs-keyword">private</span> Integer interestRate;
+}
+</code></pre></div></div>
+<div class="sl-block" data-block-type="code" data-block-id="955cd47144028de5999ee96ef90ccace" style="min-width: 30px; min-height: 30px; width: 500px; height: 201px; left: 80px; top: 484px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 14;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.Entity;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> DebitAccount <span class="hljs-keyword">extends</span> Account{
+
+    <span class="hljs-keyword">private</span> Integer overdraftFee;
+
+    <span class="hljs-comment">// getter and setter</span>
+}
+</code></pre></div></div></section><section data-id="29277b00d37d172ffb80b878665a852a" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="text" data-block-id="4476860cad43e66715a1eb2262a384bc" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 160px; top: 31px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<p><span>Table per class</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="265171dcbf88df9f4decb8741dcd75a5" style="height: auto; min-width: 30px; min-height: 30px; width: 821px; left: 80px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;">
+<p><span style="color:rgb(51, 51, 51); text-align:start">This is called 
+the table-per-concrete-class strategy. Each table defines all persistent
+ states of the class, including the inherited state.</span></p>
+</div></div>
+<div class="sl-block" data-block-type="code" data-block-id="1d94da46a0cf2bec752047ddbf3e6fbf" style="min-width: 30px; min-height: 30px; width: 603px; height: 220px; left: 93px; top: 200px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 13;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Account {
+    @Id
+    <span class="hljs-keyword">private</span> Integer id;
+    <span class="hljs-keyword">private</span> String owner;
+    <span class="hljs-keyword">private</span> Integer balance;
+    <span class="hljs-keyword">private</span> Integer interestRate;
+}
+</code></pre></div></div>
+<div class="sl-block" data-block-type="code" data-block-id="463d9ca7e5ad11135df1e24e3192861e" style="min-width: 30px; min-height: 30px; width: 500px; height: 199px; left: 93px; top: 454px;"><div class="sl-block-content" data-highlight-theme="github-gist" style="z-index: 14;"><pre class="gradle"><code class="hljs"><span class="hljs-keyword">import</span> javax.persistence.Entity;
+
+@Entity
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> DebitAccount <span class="hljs-keyword">extends</span> Account{
+
+    <span class="hljs-keyword">private</span> Integer overdraftFee;
+
+    <span class="hljs-comment">// getter and setter</span>
+}
+</code></pre></div></div></section><section data-id="2ee103fa5d41ef62e3783d7845f31487" class="future" style="display: none;" aria-hidden="true" hidden=""><div class="sl-block" data-block-type="image" data-block-id="a06e066d16bb59586b535cfbcf3509cf" style="min-width: 30px; min-height: 30px; width: 724px; height: 420px; left: 105px; top: 140px;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="584" data-natural-height="339" style="" src="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/thank_you_smiley.jpg" data-lazy-loaded=""></div></div></section>
+				</div>
+				<div class="deck-kudos" style="opacity: 1;">
+					<button class="kudos-button kudos-trigger" data-kudos-id="944087" data-kudoed-by-user="false">
+						<div class="kudos-heart">
+							<span class="kudos-icon icon i-heart-fill"></span>
+						</div>
+						<div class="kudos-count" data-kudos-value="0" data-kudos-id="944087"></div>
+					</button>
+				</div>
+			<div class="backgrounds"><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: none;" data-loaded="true"></div><div class="slide-background past" style="display: block;" data-loaded="true"></div><div class="slide-background past" style="display: block;" data-loaded="true"></div><div class="slide-background present" style="display: block;" data-loaded="true"></div><div class="slide-background future" style="display: block;" data-loaded="true"></div><div class="slide-background future" style="display: block;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div><div class="slide-background future" style="display: none;" data-loaded="true"></div></div><div class="progress" style="display: block;"><span style="width: 562.744px;"></span></div><aside class="controls" style="display: block;" data-controls-layout="bottom-right" data-controls-back-arrows="faded"><button class="navigate-left enabled" aria-label="previous slide"><div class="controls-arrow"></div></button><button class="navigate-right enabled" aria-label="next slide"><div class="controls-arrow"></div></button><button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button><button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="slide-number" style="display: none;"></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);" id="aria-status-div" aria-live="polite" aria-atomic="true">
+More Annotations
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Table(name = "Employee")
+public class Person {
+    @Id
+    Integer id;
+    @Column(name = "First_Name")
+    String name;
+    @Transient
+    Integer age;
+    @Temporal(TemporalType.DATE)
+    Date dob;
+}
+
+
+	@Table annotation is used to store specify the name of the table for entity.
+	@Transient is used to ignore the field of an entity while persisting it into a database.
+	@Temporal annotation is used with Date types to specify what should be saved i.e DATE, TIME or TIMESTAMP
+
+</div></div>
+		</div>
+	</div>
+
+	<div class="pill summary-pill" style="left: 527.5px;">
+		<div class="pill-picture" style="background-image: url(https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50)"></div>
+		<div class="pill-content">
+			<h4 class="pill-title">Hibernate Bootcamp</h4>
+			<p class="pill-description">By Pulkit Pushkarna</p>
+		</div>
+	</div>
+
+	<div class="pill instructions-pill" style="left: 574.5px;">
+		<div class="pill-picture"></div>
+		<div class="pill-content">
+			<h4 class="pill-title"></h4>
+			<p class="pill-description"></p>
+		</div>
+	</div>
+
+</div>
+
+
+<div class="column">
+	<header class="deck-card extra-wide">
+		<div class="deck-social">
+			<a href="#" class="deck-social-button facebook-share-button" data-tooltip="Share on Facebook">
+				<span class="icon i-facebook"></span>
+			</a>
+			<a href="#" class="deck-social-button twitter-share-button" data-tooltip="Share on Twitter">
+				<span class="icon i-twitter"></span>
+			</a>
+			<a href="#" class="deck-social-button google-share-button" data-tooltip="Share on Google+">
+			</a>
+		</div>
+
+		<div class="deck-promotion">
+			<a class="button cta" href="http://slides.com/pricing?ref=caplt">Create a presentation like this <span class="logo"></span></a>
+		</div>
+
+
+		<div class="deck-options">
+			<a class="fullscreen-button" data-tooltip="Fullscreen" href="#"><span class="icon i-fullscreen"></span></a>
+			<a class="comment-button" data-tooltip="Comments" data-scroll-to="" href="#comments" data-scroll-to-offset="-90"><span class="icon i-comment-stroke"></span></a>
+			<a class="share-button" data-tooltip="Share" href="#"><span class="icon i-share"></span></a>
+		</div>
+
+		<div class="clear"></div>
+
+		<div class="details">
+			<div class="deck-info">
+				<h3 class="title">Hibernate Bootcamp</h3>
+				<ul class="deck-meta">
+					<li data-tooltip="Published date" data-tooltip-delay="500">
+						<span class="icon i-clock"></span>
+						<time class="value ago" datetime="2017-03-23 12:01:39 UTC">11 months ago</time>
+					</li>
+					<li data-tooltip="Kudos" data-tooltip-delay="500">
+						<span class="icon i-heart-fill"></span>
+						<span class="value" data-kudos-value="0" data-kudos-id="944087"></span>
+					</li>
+					<li data-tooltip="Views" data-tooltip-delay="500">
+						<span class="icon i-eye"></span>
+						<span class="value">290</span>
+					</li>
+				</ul>
+			</div>
+
+			<div class="user-info">
+	<div class="picture" style="background-image: url(https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50)"></div>
+	<div class="text">
+		<h3 class="title">
+			<a href="http://slides.com/pulkitpushkarna" class="username">Pulkit Pushkarna</a>
+		</h3>
+		<p class="description"></p>
+		<ul class="links">
+			
+			
+		</ul>
+	</div>
+	<div class="clear"></div>
+</div>
+
+			<div class="clear"></div>
+		</div>
+	</header>
+
+	<section class="comments" id="comments">
+		<div id="disqus_thread"><span class="placeholder">Loading comments...</span></div>
+	</section>
+
+	<section class="deck-list">
+		<h2>More from <a href="http://slides.com/pulkitpushkarna">Pulkit Pushkarna</a></h2>
+		<ul class="carousel">
+			<li class="deck-thumbnail">
+  <a class="deck-link" href="http://slides.com/pulkitpushkarna/spring-security-intermediate"></a>
+  <div class="deck-image" style="background-image: url(https://s3.amazonaws.com/media-p.slid.es/thumbnails/00a14cd5031933a17cbd052e85c6239f/thumb.jpg?1518707242)"></div>
+  <footer class="deck-details">
+    <div class="top">
+      <div class="title">Spring Security Intermediate</div>
+    </div>
+    <div class="bottom">
+      <a class="author" href="http://slides.com/pulkitpushkarna">
+        <span class="picture" style="background-image: url(https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50)"></span>
+        <span class="name">Pulkit Pushkarna</span>
+      </a>
+      <div class="stats">
+        <div>19<span class="icon i-eye"></span></div>
+      </div>
+    </div>
+  </footer>
+</li>
+<li class="deck-thumbnail">
+  <a class="deck-link" href="http://slides.com/pulkitpushkarna/spring-security-basics"></a>
+  <div class="deck-image" style="background-image: url(https://s3.amazonaws.com/media-p.slid.es/thumbnails/44c201c5e7a10289a557e3d5d169723f/thumb.jpg?447556813)"></div>
+  <footer class="deck-details">
+    <div class="top">
+      <div class="title">Spring Security Basics</div>
+    </div>
+    <div class="bottom">
+      <a class="author" href="http://slides.com/pulkitpushkarna">
+        <span class="picture" style="background-image: url(https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50)"></span>
+        <span class="name">Pulkit Pushkarna</span>
+      </a>
+      <div class="stats">
+        <div>144<span class="icon i-eye"></span></div>
+      </div>
+    </div>
+  </footer>
+</li>
+<li class="deck-thumbnail">
+  <a class="deck-link" href="http://slides.com/pulkitpushkarna/groovy-for-java-developers"></a>
+  <div class="deck-image" style="background-image: url(https://s3.amazonaws.com/media-p.slid.es/thumbnails/867d8589d6a58514b1471ef887d71a97/thumb.jpg?930024962)"></div>
+  <footer class="deck-details">
+    <div class="top">
+      <div class="title">Groovy for Java Developers</div>
+    </div>
+    <div class="bottom">
+      <a class="author" href="http://slides.com/pulkitpushkarna">
+        <span class="picture" style="background-image: url(https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50)"></span>
+        <span class="name">Pulkit Pushkarna</span>
+      </a>
+      <div class="stats">
+        <div>53<span class="icon i-eye"></span></div>
+      </div>
+    </div>
+  </footer>
+</li>
+<li class="deck-thumbnail">
+  <a class="deck-link" href="http://slides.com/pulkitpushkarna/spring-data-jpa"></a>
+  <div class="deck-image" style="background-image: url(https://s3.amazonaws.com/media-p.slid.es/thumbnails/382b65226ad0fffa9814508d2bfa9e11/thumb.jpg?1340950744)"></div>
+  <footer class="deck-details">
+    <div class="top">
+      <div class="title">Spring Data JPA</div>
+    </div>
+    <div class="bottom">
+      <a class="author" href="http://slides.com/pulkitpushkarna">
+        <span class="picture" style="background-image: url(https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50)"></span>
+        <span class="name">Pulkit Pushkarna</span>
+      </a>
+      <div class="stats">
+        <div>162<span class="icon i-eye"></span></div>
+      </div>
+    </div>
+  </footer>
+</li>
+
+		</ul>
+	</section>
+
+</div>
+      </div>
+      <footer class="global-footer">
+    <div class="link-group">
+      <h5>Product</h5>
+      <a href="http://slides.com/?root=true">Home</a>
+      <a href="http://slides.com/explore?root=true">Explore</a>
+      <a href="http://slides.com/features?root=true">Features</a>
+      <a href="http://slides.com/pricing?root=true">Pricing</a>
+      <a href="http://slides.com/developers?root=true">Developers</a>
+    </div>
+
+    <div class="link-group">
+      <h5>Help</h5>
+      <a href="http://help.slides.com/" target="_blank">Forum</a>
+      <a href="http://help.slides.com/knowledgebase" target="_blank">Knowledge Base</a>
+      <a href="http://help.slides.com/" data-feedback-mode="smartvote">Leave Feedback</a>
+      <a href="http://help.slides.com/" data-feedback-mode="contact">Report an Issue</a>
+    </div>
+
+    <div class="link-group">
+      <h5>Community</h5>
+      <a href="http://blog.slides.com/" target="_blank">Blog</a>
+      <a href="http://twitter.com/slides" target="_blank">Twitter</a>
+      <a href="http://facebook.com/slidesapp" target="_blank">Facebook</a>
+      <a href="http://plus.google.com/+slidesapp/" rel="publisher" target="_blank">Google+</a>
+    </div>
+
+    <div class="link-group">
+      <h5>Company</h5>
+      <a href="http://slides.com/about?root=true">About Slides</a>
+      <a href="http://slides.com/changelog?root=true">What's New</a>
+      <a href="http://slides.com/terms?root=true">Terms of Service</a>
+      <a href="http://slides.com/privacy?root=true">Privacy Policy</a>
+    </div>
+
+    <div class="copyright"><span>© 2018 Slides, Inc.</span></div>
+</footer>
+
+    </div> <!--! end of #container -->
+    <script>
+UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/f7sH7NavrjjvuGxByaw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+
+UserVoice.push(['set', {
+  accent_color: '#448dd6',
+  trigger_color: 'white',
+  trigger_background_color: 'rgba(46, 49, 51, 0.6)',
+  position: 'automatic'
+}]);
+
+</script>
+    
+<script>
+	var SLConfig = {"deck":{"id":944087,"slug":"hibernate-basics-11","title":"Hibernate Bootcamp","description":"","width":960,"height":700,"visibility":"all","published_at":"2017-03-23T12:01:39.941Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/76e441f41802a3ac4753dea13d53b7b9/thumb.jpg","view_count":290,"user":{"id":521773,"username":"pulkitpushkarna","name":"Pulkit Pushkarna","description":null,"thumbnail_url":"https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50","paid":false,"pro":false,"lite":false,"team_id":null,"settings":{"id":364766,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"should_loop":false,"share_notes":null,"slide_number":null,"slide_count":40,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":1,"data_updated_at":1490285695161,"font_typekit":null,"font_google":null},"user":{"id":521773,"username":"pulkitpushkarna","name":"Pulkit Pushkarna","description":null,"thumbnail_url":"https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50","paid":false,"pro":false,"lite":false,"team_id":null,"settings":{"id":364766,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}}};
+</script>
+    <script src="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/application-d09c5b7c7e0f3753da4435ee2df38ae52bfe79ee798dffe54.js" defer="defer"></script>
+    	<script src="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/deck-97bb31ce33179dcbb2ca70e33b3a712731ed2312f8b8c8fbf97702ef.js" defer="defer"></script>
+	
+
+
+  
+
+<script type="text/javascript" src="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/zoom-ad5c30ae3cd80db38535c45e59d592e670322cf70fa1ddc37b883260.js"></script><script type="text/javascript" src="Hibernate%20Bootcamp%20by%20Pulkit%20Pushkarna_files/highlight-98b7e4f57642cc5678d24e9df9c4f1cde21ed41a777a9def33d.js"></script></body></html>

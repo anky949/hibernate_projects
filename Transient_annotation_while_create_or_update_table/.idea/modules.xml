@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Transient_annotation_while_create_or_update_table.iml" filepath="$PROJECT_DIR$/.idea/modules/Transient_annotation_while_create_or_update_table.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Transient_annotation_while_create_or_update_table_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Transient_annotation_while_create_or_update_table_main.iml" group="Transient_annotation_while_create_or_update_table" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Transient_annotation_while_create_or_update_table_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Transient_annotation_while_create_or_update_table_test.iml" group="Transient_annotation_while_create_or_update_table" />
+    </modules>
+  </component>
+</project>
