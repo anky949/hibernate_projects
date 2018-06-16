@@ -1,6 +1,8 @@
 package A_criteria_using_joins;
 
+import models.Address;
 import models.Author;
+import models.Book;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,9 +16,8 @@ import java.util.List;
 public class application {
     public static void main(String[] args) {
 
-/*
 
-        Author author1=new Author();
+      /*  Author author1=new Author();
         author1.setId(35);
         author1.setFirstname("ankit");
         author1.setLastName("gupta");
@@ -32,23 +33,21 @@ public class application {
 
         author1.setBooks(book1);
 */
-
         SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
         Session session=sessionFactory.openSession();
         session.beginTransaction();
 
-/*
-            session.save(author1);
+  /*          session.save(author1);
             session.save(address);
             session.save(book1);
 */
-
         Criteria criteria = session.createCriteria(Author.class);
-        criteria.createAlias("address", "address1", JoinType.LEFT_OUTER_JOIN)
+       /* criteria.createAlias("address", "address1", JoinType.LEFT_OUTER_JOIN)
                 .createAlias("book", "book1", JoinType.LEFT_OUTER_JOIN);
-
-        List<Author> list=criteria.list();
-        System.out.println(list);
+*/
+      //  List<Author> list=criteria.list();
+        Author author=(Author) criteria.uniqueResult();
+        System.out.println(author);
 
 
 

@@ -1,4 +1,4 @@
-package criteria_using_nested_entity;
+package Criteria_using_groupby_and_set_returned_data_in_DTO;
 
 import javax.persistence.*;
 
@@ -10,7 +10,7 @@ public class Driver {
     private String driverName;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "accountId")
+    @JoinColumn(name="accountId")
     private DriverAccount driverAccount;
 
 

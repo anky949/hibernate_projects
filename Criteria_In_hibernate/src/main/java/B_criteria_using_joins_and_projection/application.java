@@ -56,8 +56,7 @@ public class application {
         projectionList.add(Projections.property("book1.book_name"),"author_book");
         criteria.setProjection(projectionList);
         criteria.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
-        System.out.println(criteria.list());
-
+        System.out.println(criteria.list());// it return the List of map
 
         session.getTransaction().commit();
         session.close();

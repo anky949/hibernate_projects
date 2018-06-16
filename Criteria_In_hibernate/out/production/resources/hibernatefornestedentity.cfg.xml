@@ -22,9 +22,10 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!--Annotated entity class-->
-        <mapping class="criteria_using_nested_entity.DriverTransaction"/>
-        <mapping class="criteria_using_nested_entity.Driver"/>
-        <mapping class="criteria_using_nested_entity.DriverAccount"/>
+        <mapping class="Criteria_using_groupby.DriverTransaction"/>
+        <mapping class="Criteria_using_groupby.Driver"/>
+        <mapping class="Criteria_using_groupby.DriverAccount"/>
+        <mapping class="Criteria_using_groupby.DetailDTO"/>
 
     </session-factory>
 </hibernate-configuration>

@@ -22,10 +22,8 @@
         <property name="hbm2ddl.auto">update</property>
 
         <!--Annotated entity class-->
-        <mapping class="Criteria_using_groupby_and_set_returned_data_in_DTO.DriverTransaction"/>
-        <mapping class="Criteria_using_groupby_and_set_returned_data_in_DTO.Driver"/>
-        <mapping class="Criteria_using_groupby_and_set_returned_data_in_DTO.DriverAccount"/>
-        <mapping class="Criteria_using_groupby_and_set_returned_data_in_DTO.DetailDTO"/>
+        <mapping class="ReturnListOfMapUsingCriteria.Student"/>
+        <mapping class="ReturnListOfMapUsingCriteria.Subject"/>
 
     </session-factory>
 </hibernate-configuration>
